@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load("current", {packages: ["corechart"]});
+
+            {% for name, data in datas %}
+                google.charts.setOnLoadCallback(() => drawChartSingle('{{name}}', {{data|safe}} ));
+                // console.log({{data|safe}})
+            {% endfor %}
+
+            function drawChartSingle(name, data) {
+                var data = google.visualization.arrayToDataTable(data);
+                var options = {
+                    title: name + " Word Rate",
+                    bar: {groupWidth: "90%"},
+                };
+                var chart = new google.visualization.ColumnChart(document.getElementById(name + "_chart"));
+                chart.draw(data, options);
+            }
+        </script>
+
+    </head>
+    <body>
+        <p>Здесь мог бы быть ваш паблик)</p>
+        <!-- <form action="" method="post" name="analyze">
+            {{form.hidden_tag()}}
+            <p>
+                <br>{{form.domains(size=80)}}<br>
+                <br>{{form.tags(size=80)}}<br>
+            </p>    
+            <p><input type="submit" value="Analyze"></p>
+        </form> -->
+
+        <table class="columns">
+            {% for name, data in datas %}
+            <tr>
+                <div id="{{name}}_chart"></div>
+
+            </tr>
+            {% endfor %}
+        </table>
+
+        </div>
+    </body>
+</html>

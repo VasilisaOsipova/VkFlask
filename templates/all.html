@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load("current", {packages: ["corechart"]});
+            google.charts.setOnLoadCallback(() => drawChartSingle('Most Popular Words', {{datas|safe}} ));
+
+            function drawChartSingle(name, data) {
+                // console.log(data)
+                var data = google.visualization.arrayToDataTable(data);
+                var options = {
+                    title: name,
+                    bar: {groupWidth: "90%"},
+                    width: 1800
+                };
+                var chart = new google.visualization.ColumnChart(document.getElementById("all_chart"));
+                chart.draw(data, options);
+            }
+        </script>
+
+    </head>
+    <body>
+
+        <div id="all_chart"></div>
+
+    </body>
+</html>

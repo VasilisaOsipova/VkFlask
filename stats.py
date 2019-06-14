@@ -30,7 +30,7 @@ class Stat():
         Returns
         -------
         data: dict
-            словарь словарей: для каждой страницы для каждого слова из tags количество встречаний
+            словарь словарей: для каждой страницы для каждого слова из tags количество 
         """
 
         self.pages = pages
@@ -60,7 +60,7 @@ class Stat():
         Returns
         -------
         data: dict
-            словарь словарей: для каждой страницы для каждого слова количество встречаний
+            словарь словарей: для каждой страницы для каждого слова количество 
         """
 
         texts = self.api.wall_get_text(self.pages, post_num)
@@ -68,7 +68,6 @@ class Stat():
 
         for page, words in texts.items():
             one_page_data = {}
-            # начальная инициализация
             for word in words:
                 norm_word = word.lower()
                 one_page_data[norm_word] = one_page_data.get(norm_word, 0) + 1

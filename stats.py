@@ -1,15 +1,6 @@
 class Stat():
-    """
-    Класс для анализа частотности слов и всего такого
-    """
+
     def __init__(self, api):
-        """
-        Parameters
-        ----------
-        api: class
-            Класс, имеющий wall_get, получающий список адресов и количество постов и
-            возвращающий словарь вида сообщество: список слов
-        """
 
         self.tags = []
         self.pages = []
@@ -17,21 +8,6 @@ class Stat():
         self.api = api
 
     def get_rate(self, pages, tags, post_num=300):
-        """
-        Возвращает словарь словарей: для каждого количества для каждого слова частоту
-
-        Parameters
-        ----------
-        pages: list
-            страницы для анализа
-        tags: list
-            список слов для подсчета по ним
-
-        Returns
-        -------
-        data: dict
-            словарь словарей: для каждой страницы для каждого слова из tags количество 
-        """
 
         self.pages = pages
         self.tags = sorted(tags)
@@ -47,21 +23,6 @@ class Stat():
         return self.data, data
 
     def get_rates(self, pages, post_num=300):
-        """
-        Возвращает словарь словарей: для каждого количества для каждого слова частоту
-
-        Parameters
-        ----------
-        pages: list
-            страницы для анализа
-        post_num: int
-            количество постов для анализа
-
-        Returns
-        -------
-        data: dict
-            словарь словарей: для каждой страницы для каждого слова количество 
-        """
 
         texts = self.api.wall_get_text(self.pages, post_num)
         data = {}
@@ -85,7 +46,6 @@ def main():
     stat = Stat(api)
     rate = stat.get_rate(["https://vk.com/habr"], ["docker"], 4)
     print(rate)
-    # {'habr': {'chromium': 2, 'опыт': 1}}
 
     return rate
 

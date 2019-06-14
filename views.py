@@ -6,11 +6,9 @@ from forms import AnalyzeForm
 
 @app.route('/')
 def root():
-    # это не нужно, но на будущее
     form = AnalyzeForm()
     if form.validate_on_submit():
         return redirect("/")
-    # рендерим шаблон
     return render_template("root.html",
                            form=form,
                            title="Analyze",

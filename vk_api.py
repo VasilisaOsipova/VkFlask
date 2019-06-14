@@ -6,30 +6,11 @@ import re
 
 
 class vk_api():
-    """Класс для облегчения работы с api
 
-    :param token: access_token для работы приложения
-    """
     def __init__(self, token):
         self.token = token
 
     def request(self, method, **params):
-        """Обертка над вызовом метода
-
-        Parameters
-        ----------
-        method: str
-            метод, который надо вызвать
-        params: dict
-            параметры, которые надо передать
-
-        Returns
-        -------
-        None
-            если произошла ошибка
-        Data
-            если запрос прошел успешно
-        """
 
         params_str = "&".join([str(key) + "=" + str(val) for key, val in params.items()]
                               + ["access_token=" + self.token, "v=5.95"])
@@ -51,22 +32,6 @@ class vk_api():
         return None
 
     def wall_get(self, addresses, count):
-        """Обертка для получения записей со стены сообшеств
-
-        Parameters
-        ----------
-        addresses: list
-            список адрессов соощбеств
-        params: count
-            количество записей, которые надо собрать с каждой стены
-
-        Returns
-        -------
-        datas
-            словарь вида сообщество:записи
-
-        """
-
         datas = {}
         for address in addresses:
             if ("vk.com" in address):
@@ -87,21 +52,6 @@ class vk_api():
         return datas
 
     def wall_get_text(self, addresses=[], count=300):
-        """Обертка для получения записей со стены сообшеств
-
-        Parameters
-        ----------
-        addresses: list
-            список адрессов соощбеств
-        params: count
-            количество записей, которые надо собрать с каждой стены
-
-        Returns
-        -------
-        datas
-            словарь вида сообщество: текст из записей (список слов)
-
-        """
 
         info = self.wall_get(addresses, count)
         data = {}

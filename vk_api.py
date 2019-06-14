@@ -2,8 +2,7 @@ import urllib.request
 import json
 import re
 
-# https://oauth.vk.com/authorize?client_id=7017126&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52
-# шо это за овощебаза читать https://vk.com/dev/first_guide в пункте 3
+
 
 
 class vk_api():

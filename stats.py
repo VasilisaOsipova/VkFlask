@@ -41,7 +41,7 @@ class Stat():
 def main():
     from vk_api import vk_api
 
-    my_token = "9d40774f9d40774f9d40774f659d2b65e999d409d40774fc"
+    my_token = "18ebbcad18ebbcad18ebbcadfb18809ecc118eb18ebbcad45e800ada31fb671bc314acd"
     api = vk_api(my_token)
     stat = Stat(api)
     rate = stat.get_rate(["https://vk.com/habr"], ["docker"], 4)

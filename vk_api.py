@@ -67,7 +67,7 @@ class vk_api():
 
 
 def main():
-    my_token = "9d40774f9d40774f9d40774f659d2b65e999d409d40774fc1bf2016"
+    my_token = "18ebbcad18ebbcad18ebbcadfb18809ecc118eb18ebbcad45e800ada31fb671bc314acd"
     api = vk_api(my_token)
     data = api.wall_get_text(["https://vk.com/habr"], 200)
     print(data)
